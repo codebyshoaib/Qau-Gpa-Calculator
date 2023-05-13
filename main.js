@@ -71,60 +71,95 @@
   
     const listOfGrades = [];
     const listOfUnits = [];
-    let totalUnits = 0;
+    let currentCredits = 0;
     let totalcourses=0;
     GRADESSELECT.forEach((e) => {
-    //   let GRADES = parseInt(e.value);
-    //   const selectedIndex = e.selectedIndex;
-    //   const selectedGrade = GRADES[selectedIndex];
-    //   const gradeValue = selectedGrade.text.toUpperCase();
-    //   listOfGrades.push(gradeValue);
         const gradeValue = parseInt(e.value);
         listOfGrades.push(gradeValue);
     });
-   // console.log(listOfGrades);
-  
     UNIT.forEach((e) => {
       const unitValue = parseInt(e.value);
       if(unitValue <0 || unitValue > 4){
         return;
       }
-      totalUnits += unitValue;
+      currentCredits += unitValue;
       totalcourses++;
       listOfUnits.push(unitValue);
     });
-    //console.log(listOfUnits);
-  
-    let CGP = 0;
-  
+    let gradePoints = 0;
     for (let i = 0; i < listOfUnits.length; i++) {
-      CGP += gradeCalc(listOfGrades[i], listOfUnits[i]);
+      gradePoints += gradeCalc(listOfGrades[i], listOfUnits[i]);
     }
-    const gpa = CGP / totalUnits;
-   showLastParagraph();
-    if (gpa >= 0){
-      CGPAPARAGRAPH.textContent = "Total GPA " + gpa.toFixed(2);
-      let para=document.getElementById("cgpa-calc");
-      para.innerHTML+=`<p><small> For ` + totalcourses + ` courses </small></p>`;
-      lastp=document.querySelector('.lastp');
-      lastp.style.backgroundColor= 'green'; 
-      let buttonElement = lastp.querySelector('button');
-      buttonElement.style.display = 'inline-block';
-    } else {
-      CGPAPARAGRAPH.textContent = "Enter Correct details under each option to calculate your gpa"; 
-      lastp=document.querySelector('.lastp');
-      lastp.style.backgroundColor= 'red'; 
-      let buttonElement = lastp.querySelector('button');
-      buttonElement.style.display = 'none';
+     const gpa=gradePoints/currentCredits;
+    
+    let currentGpa=parseFloat( document.querySelector('input.current-cgpa').value);
+    let previousCredits= parseInt(document.querySelector('input.current-credits').value);
+    if(currentGpa){
+        if(gpa){
+            let cgpa=(gpa*currentCredits)+(currentGpa*previousCredits);
+            let totalCredits=currentCredits+previousCredits
+            if(currentGpa>4){
+                document.querySelector('input.current-cgpa').style.borderColor='red';
+                cgpa=0;
+            }
+            cgpa=cgpa/totalCredits;
+            if(cgpa>0){
+                CGPAPARAGRAPH.textContent = "Total CGPA " + cgpa.toFixed(2);
+                let para=document.getElementById("cgpa-calc");
+                para.innerHTML+=`<p><small> For ` + totalCredits + ` Credit Hours </small></p>`;
+                lastp=document.querySelector('.lastp');
+                lastp.style.backgroundColor= 'green'; 
+                let buttonElement = lastp.querySelector('button');
+                buttonElement.style.display = 'inline-block';
+            }
+            else{
+                CGPAPARAGRAPH.textContent = "Enter Correct details under each option to calculate your cgpa"; 
+                lastp=document.querySelector('.lastp');
+                lastp.style.backgroundColor= 'red'; 
+                let buttonElement = lastp.querySelector('button');
+                buttonElement.style.display = 'none';
+            }
+            console.log(cgpa);
+            console.log(totalCredits);
+        }
+        else{
+            CGPAPARAGRAPH.textContent = "Enter Your current Semester Data to calculate cgpa"; 
+            lastp=document.querySelector('.lastp');
+            lastp.style.backgroundColor= 'red'; 
+            let buttonElement = lastp.querySelector('button');
+            buttonElement.style.display = 'none';
+        }
+        
     }
+    else{
+        if (gpa >= 0){
+            CGPAPARAGRAPH.textContent = "Total GPA " + gpa.toFixed(2);
+            let para=document.getElementById("cgpa-calc");
+            para.innerHTML+=`<p><small> For ` + totalcourses + ` courses </small></p>`;
+            lastp=document.querySelector('.lastp');
+            lastp.style.backgroundColor= 'green'; 
+            let buttonElement = lastp.querySelector('button');
+            buttonElement.style.display = 'inline-block';
+          } else {
+            CGPAPARAGRAPH.textContent = "Enter Correct details under each option to calculate your gpa"; 
+            lastp=document.querySelector('.lastp');
+            lastp.style.backgroundColor= 'red'; 
+            let buttonElement = lastp.querySelector('button');
+            buttonElement.style.display = 'none';
+          }
+    }
+    
+    //let gpa = calculatedGpa / currentCredits; //calculated GPA
+    
+
+    
+    showLastParagraph();
+
     
   }
   
   function resetForm() {
-    let forms = document.getElementsByTagName('form');
-    for (let i = 0; i < forms.length; i++) {
-      forms[i].reset();
-    }
+    location.reload();
   }
   
   function showLastParagraph() {
@@ -133,5 +168,16 @@
     setTimeout(function() {
         lastParagraph.classList.add('show');
       }, 500);
+  }
+  function showcgpaForm() {
+    var cgpaForm = document.querySelector('.key-1');
+    cgpaForm.style.display = 'block';
+    setTimeout(function() {
+        cgpaForm.classList.add('show');
+      }, 500);
+    let gpaButton=document.getElementById('calculate');
+    gpaButton.innerText='Calculate CGPA'
+    let showCgpaButton=document.querySelector('.show-gpa-button');
+    showCgpaButton.style.display='none';
   }
   
