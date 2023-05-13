@@ -92,11 +92,11 @@
     footer p{
         font-size: 14px;
       }
-    .key-1 {
+    .form-2 {
         display: inline;
         flex-wrap: wrap;
     }
-    .key-1 input{
+    .form-2 input{
        width: 90%;
     }
     
@@ -230,7 +230,7 @@
     color: green;
     
   }
-  .key-1{
+  .form-2{
     display: none;
   }
   #calculate{
