@@ -25,20 +25,21 @@
   let counter = 1;
   
 // FUnction Adds new course tab each time button pressed !!
-  function addCourse() {
+function addCourse() {
     let addNew = document.createElement("form");
     addNew.classList.add("add_new", `key-${counter}`);
+  
     const course_name = `
-    <form class="add_new key-${counter}">
-      <input type="text" placeholder="Course" class="courses key-${counter}" required>
-          <input type="number" placeholder="Credits" class="credit-units key-${counter}" required>
-          <input type="number"  class="Marks" placeholder="Marks" key-${counter}" required>
-    </form>
+      <input type="text" placeholder="Course" class="courses key-${counter}">
+      <input type="number" placeholder="Credits" class="credit-units key-${counter}" required>
+      <input type="number" class="marks key-${counter}" placeholder="Marks" required>
     `;
     addNew.innerHTML = course_name;
     document.getElementById("course-wrapper").appendChild(addNew);
     counter++;
   }
+
+  
 // FUnction Ends here !!
 
 // FUnction Removes new course tab each time button pressed !!
@@ -170,7 +171,7 @@
       }, 500);
   }
   function showcgpaForm() {
-    var cgpaForm = document.querySelector('.key-1');
+    var cgpaForm = document.querySelector('.form-2');
     cgpaForm.style.display = 'block';
     setTimeout(function() {
         cgpaForm.classList.add('show');
