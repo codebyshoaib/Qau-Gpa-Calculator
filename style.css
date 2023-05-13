@@ -40,6 +40,7 @@
     text-align: center;
     height: auto;
     border: 2px solid #829cab;
+    
     margin: 100px auto;
   /*  text-align: center; */
   }
@@ -50,21 +51,64 @@
    .calculator-box {
       width: 70%;
     }
+    
+    
   }
-  
+  @media screen and (max-width: 1025px) {
+    .calculator-box {
+       width: 70%;
+     }
+     
+   }
   /* On screens that are 950px or less, set the width to 75% */
   @media screen and (max-width: 950px) {
    .calculator-box {
       width: 75%;
     }
+
   }
+  
+
   
   /* On screens that are 600px or less, set the width to 90% */
   @media screen and (max-width: 600px) {
    .calculator-box {
-      width: 90%;
+      width: 95%;
+      padding: 50px 0px;
+    }
+    .calculator-box img{
+        width: 50%;
+    }
+    #course-wrapper form {
+        padding: 0;
+    }
+    #course-wrapper form input{
+        width: 27%;
+    }
+    .btn button{
+        width: 27%;
+        font-size: 10px;
     }
   }
+  @media screen and (max-width: 800px) {
+    .calculator-box {
+       width: 95%;
+       padding: 50px 0px;
+     }
+     .calculator-box img{
+         width: 50%;
+     }
+     #course-wrapper form {
+         padding: 0;
+     }
+     #course-wrapper form input{
+         width: 25%;
+     }
+     .btn button{
+         width: 28%;
+         font-size: 8px;
+     }
+   }
   
   
   h1 {
@@ -115,6 +159,7 @@
     margin-left: 10px;
     border: none;
     border-radius: 50px;
+    
   }
   
    button:hover {
