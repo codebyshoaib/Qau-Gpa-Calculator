@@ -9,18 +9,9 @@
 </head>
 <body>
     <div class="calculator-box">
-        <!-- <h1>QAU GPA CALCULATOR</h1> -->
         <img src="./download.png" alt="">
-        <!-- <p>
-          This GPA Calculator is based on the Quaid e Azam University grading
-          system.
-        </p> -->
-    
         <div id="course-wrapper">
           <form class="key-0">
-            <!-- <p> <label id="course-row" for="courses">Courses</label> 
-             <label id="credit-row" for="credit-units">Credit Hours</label>
-           <label id="marks-row" for="marks">Marks </label></p> -->
               <input
                 type="text"
                 placeholder="Course Code"
@@ -42,32 +33,41 @@
             value=""
             required
         />
-              <!-- <select class="grade key-0" required>
-                <option class="grade" value="select">Select</option>
-                <option class="grade" value="5">A</option>
-                <option class="grade" value="5">A-</option>
-                <option class="grade" value="4">B+</option>
-                <option class="grade" value="5">B-</option>
-                <option class="grade" value="3">C+</option>
-                <option class="grade" value="5">C-</option>
-                <option class="grade" value="2">D</option>
-                <option class="grade" value="0">F</option>
-              </select> -->
+              
           </form>
         </div>
         <!-- <section class"btn">+ Add Course</section> -->
         <div class="btn">
           <button onclick="addCourse()">+ Add Course</button>
           <button onclick="removeCourse()">- Remove Course</button>
-          <button onclick="calcCgpa()">Calculate CGPA</button>
+          <!-- <button onclick="calcCgpa()">Calculate CGPA</button> -->
         </div>
+        
+        
+        <form class="key-1">
+            <label for="current-cgpa">Current CGPA</label>
+            <input
+            type="number"
+            placeholder="CGPA"
+            class="current-cgpa key-0"
+            />
+            <label for="current-credits">Total Credit Hours</label>
+            <input
+            type="number"
+            placeholder="Total Credits"
+            class="current-credits key-0"
+            />
+          </form>
+          
+          <button onclick="calcCgpa()" id="calculate">Calculate GPA</button>
+          <button onclick="showcgpaForm()" class="show-gpa-button">Want CGPA instead?</button>
         <div class="lastp">
           <p id="cgpa-calc">Your GPA is:</p>
           <button onclick="resetForm()"> Reset </button>
         </div>
       </div>
       <footer class="footer">
-        <p>Disclaimer : This tool currently works for GPA ; CGPA functionality is under process</p>
+        
         <p>Developed by Junaid & <a href="https://codebyshoaib.mhdcreations.com/">Shoaib</a></p>
 
       </footer>
