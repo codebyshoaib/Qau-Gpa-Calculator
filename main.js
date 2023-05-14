@@ -31,8 +31,8 @@ function addCourse() {
   
     const course_name = `
       <input type="text" placeholder="Course" class="courses key-${counter}">
-      <input type="number" placeholder="Credits" class="credit-units key-${counter}" required>
-      <input type="number" class="marks key-${counter}" placeholder="Marks" required>
+      <input type="number" placeholder="Credits" class="credit-units key-${counter}" required  oninput="validateCredits(this)">
+      <input type="number" class="marks key-${counter}" placeholder="Marks" required oninput="validateMarks(this)">
     `;
     addNew.innerHTML = course_name;
     document.getElementById("course-wrapper").appendChild(addNew);
@@ -181,4 +181,19 @@ function addCourse() {
     let showCgpaButton=document.querySelector('.show-gpa-button');
     showCgpaButton.style.display='none';
   }
-  
+  function validateMarks(input){
+    //const input=document.querySelector('.marks');
+    const value = input.value;
+    const number = parseFloat(value);
+    if (isNaN(number) || number > 100) {
+      input.value = Math.min(number, 100);
+    }
+  }
+  function validateCredits(input){
+    //const input=document.querySelector('.credit-units');
+    const value = input.value;
+    const number = parseInt(value);
+    if (isNaN(number) || number > 4) {
+      input.value = Math.min(number, 4);
+    }
+  }
