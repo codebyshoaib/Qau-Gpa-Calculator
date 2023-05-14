@@ -197,3 +197,19 @@ function addCourse() {
       input.value = Math.min(number, 4);
     }
   }
+  function validateTotalCredits(input){
+    //const input=document.querySelector('.credit-units');
+    const value = input.value;
+    const number = parseInt(value);
+    if (isNaN(number) || number > 80) {
+      input.value = Math.min(number, 80);
+    }
+  }
+  function validateCGPA(input){
+    //const input=document.querySelector('.credit-units');
+    const value = input.value;
+    const number = parseInt(value);
+    if (isNaN(number) || number > 4) {
+      input.value = Math.min(number, 4);
+    }
+  }
