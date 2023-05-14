@@ -238,3 +238,18 @@
     background: green;
     color: white;
 }
+.feedback{
+    width: 30%;
+    text-align: center;
+}
+.feedback svg{
+    fill:grey;
+    width: 10px;
+    vertical-align:middle;
+}
+.feedback a{
+    font-size: 12px;;
+    color: green;
+    text-decoration: none;
+    
+}
