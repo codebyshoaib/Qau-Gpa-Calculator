@@ -4,6 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QAU GPA Calculator</title>
+    
     <link rel="stylesheet" href="./style.css">
     <script src="./main.js"></script>
 </head>
@@ -24,6 +25,7 @@
                 placeholder="Credits"
                 value=""
                 required
+                oninput="validateCredits(this)"
               />
     <!--               <label for="grade">Grade: </label> -->
             <input
@@ -32,6 +34,7 @@
             placeholder="Marks "
             value=""
             required
+            oninput="validateMarks(this)"
         />
               
           </form>
@@ -73,6 +76,7 @@
               <a href="https://wa.me/923103197716?text=Hello%20Shoaib,%20I%20just%20used%20your%20tool%20and%20it's%20.....">Feedback?</a>
           </div>
       </div>
+     
       <footer class="footer">
         
         <p>Developed by <a href="https://codebyshoaib.mhdcreations.com/">Shoaib</a> | All Rights Reserved</p>
