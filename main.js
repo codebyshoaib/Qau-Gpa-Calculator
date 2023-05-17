@@ -193,7 +193,7 @@ function addCourse() {
     //const input=document.querySelector('.credit-units');
     const value = input.value;
     const number = parseInt(value);
-    if (isNaN(number) || number > 4) {
+    if (isNaN(number) || number > 4 || number<1) {
       input.value = Math.min(number, 4);
     }
   }
@@ -201,8 +201,8 @@ function addCourse() {
     //const input=document.querySelector('.credit-units');
     const value = input.value;
     const number = parseInt(value);
-    if (isNaN(number) || number > 80) {
-      input.value = Math.min(number, 80);
+    if (isNaN(number) || number > 200) {
+      input.value = Math.min(number, 200);
     }
   }
   function validateCGPA(input){
