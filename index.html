@@ -29,7 +29,7 @@
                 value=""
                 required
                 oninput="validateCredits(this)"
-              />
+              /> 
     <!--               <label for="grade">Grade: </label> -->
             <input
             type="number"
@@ -39,13 +39,13 @@
             required
             oninput="validateMarks(this)"
         />
-              
+        <span class="delete-icon" onclick="deleteCourse(this)">&#10006</span>
           </form>
         </div>
         <!-- <section class"btn">+ Add Course</section> -->
         <div class="btn">
           <button onclick="addCourse()">+ Add Course</button>
-          <button onclick="removeCourse()">- Remove Course</button>
+          <!-- <button onclick="removeCourse()">- Remove Course</button> -->
           <!-- <button onclick="calcCgpa()">Calculate CGPA</button> -->
         </div>
         
@@ -81,7 +81,12 @@
               <a href="https://wa.me/923103197716?text=Hello%20Shoaib,%20I%20just%20used%20your%20tool%20and%20it's%20.....">Feedback?</a>
           </div>
       </div>
-     
+      <div id="custom-modal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <p id="modal-message"></p>
+        </div>
+      </div>
       <footer class="footer">
         
         <p>Developed by <a href="https://codebyshoaib.mhdcreations.com/">Shoaib CS-4th</a> | All Rights Reserved </p>
