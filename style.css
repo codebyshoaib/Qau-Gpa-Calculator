@@ -45,8 +45,7 @@
   /*  text-align: center; */
   }
   
-  
-  /* On screens that are 1200px or less, set the width to 75% */
+ 
   @media screen and (max-width: 1200px) {
    .calculator-box {
       width: 70%;
@@ -60,7 +59,7 @@
      }
      
    }
-  /* On screens that are 950px or less, set the width to 75% */
+  
   @media screen and (max-width: 950px) {
    .calculator-box {
       width: 75%;
@@ -70,8 +69,12 @@
   
 
   
-  /* On screens that are 600px or less, set the width to 90% */
+ 
   @media screen and (max-width: 600px) {
+    
+    .btn button,#calculate{
+      width: 45% !important;
+    }
    .calculator-box {
       width: 95%;
       padding: 50px 0px;
@@ -84,6 +87,8 @@
     }
     #course-wrapper form input{
         width: 27%;
+        margin: 5px;
+        padding: 5px;
     }
     .btn button{
         width: 27%;
@@ -252,4 +257,43 @@
     color: green;
     text-decoration: none;
     
+}
+.delete-icon{
+  color:red;
+  cursor: pointer;
+  font-size: 12px;
+}
+.btn button,#calculate{
+  width: 30%;
+}
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px;
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: black;
 }
