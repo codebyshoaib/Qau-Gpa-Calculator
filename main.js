@@ -25,7 +25,7 @@ document.addEventListener("contextmenu", (event) => {
             return 0*unit;
         }
     }
- // FUnction Ends here !! 
+  
 
   let counter = 1;
   
@@ -45,22 +45,18 @@ function addCourse() {
   }
 
   
-// FUnction Ends here !!
+function removeCourse() {
+    let mainForm = document.getElementsByTagName("form");
+    let numberOfForms = mainForm.length-1;
 
-// FUnction Removes new course tab each time button pressed !!
-  function removeCourse() {
-    let mainForm = document.querySelector("form.add_new");
-    if(!mainForm){
-        // alert("No Courses Added by You till yet");
-        //mainForm=document.querySelector("form.course-wrapper");
-        let forms = document.getElementsByTagName('form');
-        for (let i = 0; i < forms.length; i++) {
-        forms[i].reset();
-        }
-    }
-    mainForm.remove();
+  if (numberOfForms === 0) {
+    alert("No Courses Added by You yet.");
+  } else {
+    let lastForm = mainForm[numberOfForms - 1];
+    lastForm.remove();
+    counter--;
   }
-// FUnction Ends Here !!
+  }
 
 
 
@@ -186,22 +182,27 @@ function addCourse() {
     let showCgpaButton=document.querySelector('.show-gpa-button');
     showCgpaButton.style.display='none';
   }
-  function validateMarks(input){
-    //const input=document.querySelector('.marks');
+  function validateMarks(input) {
     const value = input.value;
     const number = parseFloat(value);
-    if (isNaN(number) || number > 100) {
-      input.value = Math.min(number, 100);
+
+    if (isNaN(number) || number < 0) {
+        input.value = 0;
+    } else if (number > 100) {
+        input.value = Math.min(number, 100);
     }
-  }
-  function validateCredits(input){
-    //const input=document.querySelector('.credit-units');
+}
+
+ function validateCredits(input) {
     const value = input.value;
     const number = parseInt(value);
-    if (isNaN(number) || number > 4 || number<1) {
-      input.value = Math.min(number, 4);
+
+    if (isNaN(number) || number < 1) {
+        input.value = 1;
+    } else if (number > 4) {
+        input.value = Math.min(number, 4);
     }
-  }
+}
   function validateTotalCredits(input){
     //const input=document.querySelector('.credit-units');
     const value = input.value;
