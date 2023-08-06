@@ -1,3 +1,8 @@
+document.addEventListener("contextmenu", (event) => {
+         event.preventDefault();
+        alert("Trying to steal my code? Message me, We can discuss");
+         
+      });
 //Function calculates grade points GP!
     function gradeCalc(marks, unit) {
         if (marks >= 80 && marks<=100) {
