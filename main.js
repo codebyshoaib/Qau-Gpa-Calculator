@@ -1,10 +1,4 @@
-document.addEventListener("contextmenu", (event) => {
-         event.preventDefault();
-        alert("Trying to steal my code? Message me, We can discuss");
-         
-      });
-//Function calculates grade points GP!
-    function gradeCalc(marks, unit) {
+ function gradeCalc(marks, unit) {
         if (marks >= 80 && marks<=100) {
         return 4 * unit;
         } else if (marks >= 76 && marks<80) {
@@ -26,6 +20,11 @@ document.addEventListener("contextmenu", (event) => {
         }
     }
   
+// Delete the course form row
+function deleteCourse(iconElement) {
+  const courseForm = iconElement.parentNode;
+  courseForm.remove();
+}
 
   let counter = 1;
   
@@ -37,7 +36,8 @@ function addCourse() {
     const course_name = `
       <input type="text" placeholder="Course" class="courses key-${counter}">
       <input type="number" placeholder="Credits" class="credit-units key-${counter}" required  oninput="validateCredits(this)">
-      <input type="number" class="marks key-${counter}" placeholder="Marks" required oninput="validateMarks(this)">
+      <input type="number" class="marks key-${counter}" placeholder="Marks" required oninput="validateMarks(this)"> 
+      <span class="delete-icon" onclick="deleteCourse(this)">&#10006</span>
     `;
     addNew.innerHTML = course_name;
     document.getElementById("course-wrapper").appendChild(addNew);
@@ -219,3 +219,22 @@ function removeCourse() {
       input.value = Math.min(number, 4);
     }
   }
+
+  function displayModal(message) {
+    const modal = document.getElementById("custom-modal");
+    const modalMessage = document.getElementById("modal-message");
+    modalMessage.textContent = message;
+    modal.style.display = "block";
+  }
+  
+  // Function to close the custom modal
+  function closeModal() {
+    const modal = document.getElementById("custom-modal");
+    modal.style.display = "none";
+  }
+  
+  // Attach the contextmenu event listener
+  document.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+    displayModal("Want to how I did this? Message me at 03103197716");
+  });
